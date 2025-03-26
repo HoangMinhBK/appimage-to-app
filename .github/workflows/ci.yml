@@ -39,9 +39,11 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.2'
+        ruby-version: '3.2.2'
+    - name: Install specific bundler version
+      run: gem install bundler -v 2.4.22
     - name: Install dependencies
-      run: bundle install
+      run: bundle _2.4.22_ install
     - name: Build gem
       run: gem build *.gemspec
     - name: Publish to RubyGems
